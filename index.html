@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camilo Torres — Developer & Data Analyst</title>
+  <meta name="description" content="Programador y analista de datos. Páginas web, chatbots, dashboards y automatización para pymes en LATAM.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #e8e8f0;
+      min-height: 100vh;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .display { font-family: 'Space Grotesk', sans-serif; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #e8e8f0;
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: #7c6dfa; }
+
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+
+    .nav-links a {
+      font-size: 13px;
+      color: rgba(232,232,240,0.55);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #e8e8f0; }
+
+    .lang-btn {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 0.5px solid rgba(124,109,250,0.4);
+      background: transparent;
+      color: #7c6dfa;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .lang-btn:hover { background: rgba(124,109,250,0.1); }
+
+    .wrapper { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    section { padding: 5rem 0; }
+
+    .hero { padding-top: 6rem; padding-bottom: 5rem; }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #7c6dfa;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #f0f0fa;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em { font-style: normal; color: #7c6dfa; }
+
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(232,232,240,0.6);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      padding: 10px 22px;
+      background: #7c6dfa;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-ghost {
+      padding: 10px 22px;
+      background: transparent;
+      color: rgba(232,232,240,0.7);
+      border: 0.5px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: #e8e8f0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #7c6dfa;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f0f0fa;
+      letter-spacing: -0.4px;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: rgba(232,232,240,0.5);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+      margin: 0 2rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-text { font-size: 15px; color: rgba(232,232,240,0.7); line-height: 1.8; }
+    .about-text p { margin-bottom: 1rem; }
+
+    .stack-label {
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(232,232,240,0.35);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .stack-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .chip {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(124,109,250,0.1);
+      border: 0.5px solid rgba(124,109,250,0.25);
+      color: #b4aafc;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .service-card:hover { border-color: rgba(124,109,250,0.35); }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(124,109,250,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 20px;
+      color: #7c6dfa;
+    }
+
+    .service-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #f0f0fa;
+      margin-bottom: 0.4rem;
+    }
+
+    .service-card p { font-size: 13px; color: rgba(232,232,240,0.5); line-height: 1.6; }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: rgba(124,109,250,0.35); }
+
+    .project-thumb {
+      height: 120px;
+      background: linear-gradient(135deg, rgba(124,109,250,0.15) 0%, rgba(29,158,117,0.12) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: rgba(124,109,250,0.6);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .project-body { padding: 1rem 1.25rem; }
+
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.6rem; }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(29,158,117,0.12);
+      color: #5dcaa5;
+    }
+
+    .project-body h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #f0f0fa;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-body p { font-size: 13px; color: rgba(232,232,240,0.5); line-height: 1.5; }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #7c6dfa;
+      margin-top: 0.75rem;
+      text-decoration: none;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    .blog-list { display: flex; flex-direction: column; }
+
+    .blog-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .blog-item:hover .blog-title { color: #7c6dfa; }
+
+    .blog-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e8e8f0;
+      transition: color 0.2s;
+      flex: 1;
+    }
+
+    .blog-date { font-size: 12px; color: rgba(232,232,240,0.35); white-space: nowrap; }
+
+    .blog-cat {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(124,109,250,0.1);
+      color: #9e94fb;
+      white-space: nowrap;
+    }
+
+    .contact-box {
+      background: rgba(124,109,250,0.06);
+      border: 0.5px solid rgba(124,109,250,0.2);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f0f0fa;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-box p {
+      font-size: 14px;
+      color: rgba(232,232,240,0.5);
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-options { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    .wa-btn {
+      padding: 10px 22px;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+    }
+
+    .wa-btn:hover { opacity: 0.88; }
+
+    footer {
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(232,232,240,0.25);
+    }
+
+    .lang-es .en { display: none; }
+    .lang-en .es { display: none; }
+
+    @media (max-width: 600px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links a { display: none; }
+      .nav-links a:last-child { display: flex; }
+      .lang-btn { display: flex; }
+    }
+  </style>
+</head>
+<body class="lang-es" id="body">
+
+<nav>
+  <a class="nav-logo display" href="#">camilo<span>.</span>dev</a>
+  <div class="nav-links">
+    <a href="#about"><span class="es">Sobre mí</span><span class="en">About</span></a>
+    <a href="#services"><span class="es">Servicios</span><span class="en">Services</span></a>
+    <a href="#portfolio-sec"><span class="es">Portafolio</span><span class="en">Portfolio</span></a>
+    <a href="#blog">Blog</a>
+    <a href="#contact"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <section class="hero">
+    <div class="hero-eyebrow es">Programador · Bogotá, Colombia</div>
+    <div class="hero-eyebrow en">Developer · Bogotá, Colombia</div>
+    <h1 class="display">
+      <span class="es">Construyo <em>soluciones digitales</em><br>que hacen crecer tu negocio</span>
+      <span class="en">I build <em>digital solutions</em><br>that grow your business</span>
+    </h1>
+    <p class="hero-sub es">Páginas web, chatbots, dashboards y automatización de datos. Servicios para pymes y emprendedores en LATAM.</p>
+    <p class="hero-sub en">Websites, chatbots, dashboards and data automation. Services for SMEs and entrepreneurs in LATAM.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#services">
+        <span class="es">Ver servicios</span>
+        <span class="en">View services</span>
+      </a>
+      <a class="btn-ghost" href="#contact">
+        <span class="es">Contactar</span>
+        <span class="en">Get in touch</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<hr class="divider">
+
+<div class="wrapper">
+  <section id="about">
+    <div class="section-label es">Sobre mí</div>
+    <div class="section-label en">About me</div>
+    <h2 class="section-title display es">Programador con experiencia real</h2>
+    <h2 class="section-title display en">Developer with real experience</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="es">Soy Camilo Torres, programador y analista de datos con más de 3 años de experiencia. Trabajé construyendo pipelines de datos para entidades del gobierno colombiano y ahora ayudo a negocios como el tuyo a automatizar procesos y tener presencia digital.</p>
+        <p class="en">I'm Camilo Torres, a developer and data analyst with 3+ years of experience. I built data pipelines for Colombian government entities and now help businesses like yours automate processes and build their digital presence.</p>
+        <p style="font-size:13px; color:rgba(232,232,240,0.4)" class="es">Estudiante de Ingeniería de Sistemas · Universidad EAN · Bogotá</p>
+        <p style="font-size:13px; color:rgba(232,232,240,0.4)" class="en">Systems Engineering student · Universidad EAN · Bogotá</p>
+      </div>
+      <div>
+        <p class="stack-label">Stack</p>
+        <div class="stack-chips">
+          <span class="chip">Python</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">PySpark</span>
+          <span class="chip">Azure</span>
+          <span class="chip">Databricks</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<div class="wrapper">
+  <section id="services">
+    <div class="section-label es">Servicios</div>
+    <div class="section-label en">Services</div>
+    <h2 class="section-title display es">¿En qué te puedo ayudar?</h2>
+    <h2 class="section-title display en">How can I help you?</h2>
+    <p class="section-sub es">Soluciones a medida para negocios que quieren crecer con tecnología.</p>
+    <p class="section-sub en">Custom solutions for businesses that want to grow with technology.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-world"></i></div>
+        <h3 class="es">Páginas web</h3>
+        <h3 class="en">Websites</h3>
+        <p class="es">Sitios rápidos, modernos y optimizados. WordPress o código puro según tu presupuesto.</p>
+        <p class="en">Fast, modern, optimized sites. WordPress or custom code depending on your budget.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-message-chatbot"></i></div>
+        <h3 class="es">Chatbots</h3>
+        <h3 class="en">Chatbots</h3>
+        <p class="es">Atención automática por WhatsApp o tu web. Tu negocio responde 24/7 sin que estés.</p>
+        <p class="en">Automated responses on WhatsApp or your website. Your business replies 24/7 without you.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-chart-bar"></i></div>
+        <h3 class="es">Dashboards</h3>
+        <h3 class="en">Dashboards</h3>
+        <p class="es">Visualiza tus datos en tiempo real con Power BI. Toma decisiones con información clara.</p>
+        <p class="en">Visualize your data in real time with Power BI. Make decisions with clear information.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-bolt"></i></div>
+        <h3 class="es">Automatización</h3>
+        <h3 class="en">Automation</h3>
+        <p class="es">Elimina tareas repetitivas con Python. Reportes, correos, procesos — automáticos.</p>
+        <p class="en">Eliminate repetitive tasks with Python. Reports, emails, processes — automated.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-api"></i></div>
+        <h3 class="es">APIs & Backend</h3>
+        <h3 class="en">APIs & Backend</h3>
+        <p class="es">Conecta tus herramientas o construye el backend de tu app con FastAPI y PostgreSQL.</p>
+        <p class="en">Connect your tools or build your app's backend with FastAPI and PostgreSQL.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-database"></i></div>
+        <h3 class="es">ETL & Datos</h3>
+        <h3 class="en">ETL & Data</h3>
+        <p class="es">Limpieza, transformación y carga de datos. Pipelines para que tus datos siempre estén listos.</p>
+        <p class="en">Data cleaning, transformation and loading. Pipelines to keep your data always ready.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<div class="wrapper">
+  <section id="portfolio-sec">
+    <div class="section-label es">Portafolio</div>
+    <div class="section-label en">Portfolio</div>
+    <h2 class="section-title display es">Proyectos destacados</h2>
+    <h2 class="section-title display en">Featured projects</h2>
+    <p class="section-sub es">Proyectos reales con impacto medible.</p>
+    <p class="section-sub en">Real projects with measurable impact.</p>
+    <div class="portfolio-grid">
+      <div class="project-card">
+        <div class="project-thumb"><i class="ti ti-chart-line"></i></div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">PostgreSQL</span></div>
+          <h3 class="es">Análisis de ventas retail</h3>
+          <h3 class="en">Retail sales analysis</h3>
+          <p class="es">Pipeline completo de análisis sobre dataset Superstore con visualizaciones y base de datos.</p>
+          <p class="en">Full analysis pipeline on the Superstore dataset with visualizations and database.</p>
+          <a class="project-link" href="https://github.com/Camilo6/retail-sales-analysis-python-sql" target="_blank">
+            <i class="ti ti-brand-github"></i> GitHub →
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"><i class="ti ti-layout-dashboard"></i></div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span></div>
+          <h3 class="es">Dashboard KPIs financieros</h3>
+          <h3 class="en">Financial KPI dashboard</h3>
+          <p class="es">Dashboard interactivo con métricas de ingreso, margen y rendimiento por canal.</p>
+          <p class="en">Interactive dashboard with revenue, margin and channel performance metrics.</p>
+          <a class="project-link" href="#">
+            <i class="ti ti-eye"></i> <span class="es">Ver demo</span><span class="en">View demo</span> →
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb"><i class="ti ti-database-import"></i></div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">ETL</span><span class="tag">Azure</span><span class="tag">PySpark</span></div>
+          <h3 class="es">Pipeline ETL enterprise</h3>
+          <h3 class="en">Enterprise ETL pipeline</h3>
+          <p class="es">Pipeline de datos que redujo tiempos de procesamiento en un 30% para entidad gubernamental.</p>
+          <p class="en">Data pipeline that reduced processing times by 30% for a government entity.</p>
+          <a class="project-link" href="#">
+            <i class="ti ti-file-description"></i> <span class="es">Ver caso</span><span class="en">Case study</span> →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<div class="wrapper">
+  <section id="blog">
+    <div class="section-label">Blog</div>
+    <h2 class="section-title display es">Tips & contenido</h2>
+    <h2 class="section-title display en">Tips & content</h2>
+    <p class="section-sub es">Lo que aprendo, lo comparto.</p>
+    <p class="section-sub en">What I learn, I share.</p>
+    <div class="blog-list">
+      <a class="blog-item" href="#">
+        <span class="blog-title es">Cómo automaticé un reporte de 3 horas en 20 líneas de Python</span>
+        <span class="blog-title en">How I automated a 3-hour report in 20 lines of Python</span>
+        <span class="blog-cat">Python</span>
+        <span class="blog-date es">Próximamente</span>
+        <span class="blog-date en">Coming soon</span>
+      </a>
+      <a class="blog-item" href="#">
+        <span class="blog-title es">Excel vs Power BI — cuándo usar cada uno</span>
+        <span class="blog-title en">Excel vs Power BI — when to use each one</span>
+        <span class="blog-cat">Data</span>
+        <span class="blog-date es">Próximamente</span>
+        <span class="blog-date en">Coming soon</span>
+      </a>
+      <a class="blog-item" href="#">
+        <span class="blog-title es">Instalé un chatbot en una tienda — esto pasó la primera semana</span>
+        <span class="blog-title en">I installed a chatbot in a store — this happened the first week</span>
+        <span class="blog-cat">Chatbots</span>
+        <span class="blog-date es">Próximamente</span>
+        <span class="blog-date en">Coming soon</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<div class="wrapper">
+  <section id="contact">
+    <div class="contact-box">
+      <h2 class="display es">¿Tienes un proyecto?</h2>
+      <h2 class="display en">Have a project in mind?</h2>
+      <p class="es">Cuéntame qué necesitas. Respondo en menos de 24 horas.</p>
+      <p class="en">Tell me what you need. I reply within 24 hours.</p>
+      <div class="contact-options">
+        <!-- REEMPLAZA el número con el tuyo: 57 + tu número sin el 0 inicial -->
+        <a class="wa-btn" href="https://wa.me/573197588689?text=Hola%20Camilo,%20vi%20tu%20portafolio%20y%20me%20interesa%20un%20servicio" target="_blank">
+          <i class="ti ti-brand-whatsapp"></i> WhatsApp
+        </a>
+        <!-- REEMPLAZA con tu correo real -->
+        <a class="btn-ghost" href="mailto:camilo@camilodev.co">
+          <i class="ti ti-mail"></i> Email
+        </a>
+        <a class="btn-ghost" href="https://linkedin.com/in/camilo-torresr" target="_blank">
+          <i class="ti ti-brand-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <span class="es">© 2026 Camilo Torres · Bogotá, Colombia · Hecho con código</span>
+  <span class="en">© 2026 Camilo Torres · Bogotá, Colombia · Built with code</span>
+</footer>
+
+<script>
+  function toggleLang() {
+    const body = document.getElementById('body');
+    const btn = document.getElementById('langBtn');
+    if (body.classList.contains('lang-es')) {
+      body.classList.replace('lang-es', 'lang-en');
+      btn.textContent = 'ES';
+      document.documentElement.lang = 'en';
+    } else {
+      body.classList.replace('lang-en', 'lang-es');
+      btn.textContent = 'EN';
+      document.documentElement.lang = 'es';
+    }
+  }
+</script>
+
+</body>
+</html>
